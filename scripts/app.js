@@ -123,19 +123,24 @@ showEmployeeContainer.addEventListener('submit', (event) => {
             dob: event.target['dob'].value,
             driverLicense: event.target['driverLicense'].value,
             ssn: event.target['ssn'].value,
-            cell: event.target['cell'].value,
-            home_phone: event.target['home_phone'].value,
-            email: event.target['email'].value,
-            type: event.target['type'].value,
-            line1: event.target['line1'].value,
-            line2: event.target['line2'].value,
-            city: event.target['city'].value,
-            state: event.target['state'].value,
-            zip: event.target['zip'].value,
-            status: event.target['status'].value,
-            salary: event.target['salary'].value
-		},
-	}
+            contacts: {
+                    cell: event.target['cell'].value,
+                    home_phone: event.target['home_phone'].value,
+                    email: event.target['email'].value
+                    },
+            address: {
+                    type: event.target['type'].value,
+                    line1: event.target['line1'].value,
+                    line2: event.target['line2'].value,
+                    city: event.target['city'].value,
+                    state: event.target['state'].value,
+                    zip: event.target['zip'].value,
+                    status: event.target['status'].value,
+                    salary: event.target['salary'].value
+		            },
+	    }
+    }
+    console.log(employeeData, "Data from showEmp;oyee container event listener")
 	updateEmployee(employeeData, id)
 		.then(onUpdateEmployeeSuccess)
 		.catch(onFailure)

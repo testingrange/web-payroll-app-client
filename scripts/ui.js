@@ -37,6 +37,8 @@ export const onShowEmployeeSuccess = (employee) => {
     createEmployeeContainer.classList.add('hide')
     showEmployeeContainer.classList.remove('hide')
 	const div = document.createElement('div')
+    console.log(employee, "employee at onShowEmployeeSuccesscd")
+    console.log(employee.salary, "this is salary from onSHowEmployeeSuccess")
 	div.innerHTML = `
         <div class="row">
             <div class="col">
@@ -54,17 +56,17 @@ export const onShowEmployeeSuccess = (employee) => {
                     <h6>DOB</h6><input class="form-control" type="text" name="dob" value="${employee.dob}">    
                     <h6>Driver License</h6><input class="form-control" type="text" name="driverLicense" value="${employee.driverLicense}">
                     <h6>SSN</h6><input class="form-control" type="text" name="ssn" value="${employee.ssn}">
-                    <h6>Cell</h6><input class="form-control" type="text" name="cell" value="${employee.cell}">
-                    <h6>Home Phone</h6><input class="form-control" type="text" name="home_phone" value="${employee.home_phone}">
-                    <h6>Email</h6><input class="form-control" type="text" name="email" value="${employee.email}">
-                    <h6>Employment Type</h6><input class="form-control" type="text" name="type" value="${employee.type}">
-                    <h6>Address Line 1</h6><input class="form-control" type="text" name="line1" value="${employee.line1}">
-                    <h6>Address Line 2</h6><input class="form-control" type="text" name="line2" value="${employee.line2}">
-                    <h6>City</h6><input class="form-control" type="text" name="city" value="${employee.city}">
-                    <h6>State</h6><input class="form-control" type="text" name="state"cd value="${employee.state}">
-                    <h6>ZIP</h6><input class="form-control" type="text" name="zip" value="${employee.zip}">
+                    <h6>Cell</h6><input class="form-control" type="text" name="cell" value="${employee.contacts.cell}">
+                    <h6>Home Phone</h6><input class="form-control" type="text" name="home_phone" value="${employee.contacts.home_phone}">
+                    <h6>Email</h6><input class="form-control" type="text" name="email" value="${employee.contacts.email}">
+                    <h6>Address Type</h6><input class="form-control" type="text" name="type" value="${employee.address.type}">
+                    <h6>Address Line 1</h6><input class="form-control" type="text" name="line1" value="${employee.address.line1}">
+                    <h6>Address Line 2</h6><input class="form-control" type="text" name="line2" value="${employee.address.line2}">
+                    <h6>City</h6><input class="form-control" type="text" name="city" value="${employee.address.city}">
+                    <h6>State</h6><input class="form-control" type="text" name="state"cd value="${employee.address.state}">
+                    <h6>ZIP</h6><input class="form-control" type="text" name="zip" value="${employee.address.zip}">
                     <h6>Employment Status</h6><input class="form-control" type="text" name="status" value="${employee.status}">
-                    <h6>Salary</h6><input class="form-control" type="text" name="salary" value="${employee.salary}">
+                    <h6>Salary</h6><input class="form-control" type="text" name="salary" value="${employee.salary = employee.salary || 0}">
                     <button type="submit" class="btn btn-warning">Update Employee</button>
                 </form>
                 <button type="button" class="btn btn-danger" data-id="${employee._id}">Delete Employee</button>
