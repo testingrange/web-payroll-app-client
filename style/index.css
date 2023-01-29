@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+    background-color: rgb(138, 211, 148);
+}
+
+/* #nav-bar {
+    text-align: center;
+    height: 15rem;
+    width: 22rem;
+    background-color: rgb(241, 197, 115);
+    border: black solid 2px;
+    
+} */
+
+ul{
+    margin: 0;
+}
+
+
+.hide {
+    display: none;
+}
+
+.content-container{
+    display: flex;
+    height: 250px;
+}
+
+/* .content-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 33%;
+    flex-direction: column;
+} */
