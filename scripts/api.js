@@ -79,3 +79,41 @@ export const deleteEmployee = (id) => {
     },
     })
 }
+
+// Dependant actions
+
+export const addDependant = (data) => {
+    return fetch(`http://localhost:8001/dependants`, {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+             Authorization: `Bearer ${store.userToken}`
+        },
+        body: JSON.stringify(data)
+    })
+}
+
+
+export const deleteDependant = (dependantId, employeeId) => {
+    return fetch(`http://localhost:8001/dependants/${dependantId}/${employeeId}`, {
+        method: 'DELETE',
+        headers: {
+            Authorization: `Bearer ${store.userToken}`,
+        },
+        // body: JSON.stringify(data)
+
+    })
+}
+
+export const updateDependant = (data, dependantId) => {
+    return fetch(`http://localhost:8001/dependants/${dependantId}`, {
+        method: 'PATCH',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${store.userToken}`,
+        },
+        body: JSON.stringify(data)
+    })
+}

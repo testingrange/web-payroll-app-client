@@ -26,11 +26,11 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <button type="button" id="main-menu" class="btn btn-return">Return</button>
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <!-- <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li>dfsdfasdf</li>
                         <li>sadfasdf</li>
                         <li>asdfasdfas</li>
-                    </ul>
+                    </ul> -->
                     <div id="message-container"></div>
                 </div>
             </div>
@@ -38,8 +38,8 @@
 
         <div id="create-employee-container" class="hide">
             <button id="add-employee-container" type="button" class="btn btn-success" >Add Employee</button>
-            <form>
-                <input class="form-control" type="text" name="EmployeeId" value="">
+            <form id="show-employee-form">
+                <input class="form-control" type="text" name="employeeId" value="">
                 <button type="submit" class="btn btn-success">Find Employee</button>
             </form>
         </div>
@@ -94,28 +94,42 @@
 
         <div id="create-employee-form-container" class="hide">
             <form id="create-employee-form">
-                <div><h4>ID:</h2><input class="form-control" type="text" name="id" placeholder="Required"></div>
-                <div><h4>First Name:</h2><input class="form-control" type="text" name="firstName" placeholder="Required"></div>
-                <div><h4>Middle Name:</h2><input class="form-control" type="text" name="middleName"></div>
-                <div><h4>Last Name:</h2><input class="form-control" type="text" name="lastName" placeholder="Required"></div>
-                <div><h4>Date of Birth:</h2><input class="form-control" type="text" name="dob" placeholder="Required"></div>
-                <div><h4>Driver License:</h2><input class="form-control" type="text" name="driverLicense"></div>
-                <div><h4>SSN:</h2><input class="form-control" type="text" name="ssn" placeholder="Required"></div>
-                <div><h4>Cell phone:</h2><input class="form-control" type="text" name="cell"></div>
-                <div><h4>Home phone:</h2><input class="form-control" type="text" name="home_phone"></div>
-                <div><h4>Email:</h2><input class="form-control" type="text" name="email"></div>
-                <div><h4>Addres type:</h2><input class="form-control" type="text" name="type"></div>
-                <div><h4>Line1:</h2><input class="form-control" type="text" name="line1"></div>
-                <div><h4>Line2:</h2><input class="form-control" type="text" name="line2"></div>
-                <div><h4>City:</h2><input class="form-control" type="text" name="city"></div>
-                <div><h4>State:</h2><input class="form-control" type="text" name="state"></div>
-                <div><h4>ZIP:</h2><input class="form-control" type="text" name="zip"></div>
-                <div><h4>Employment Status:</h2><input class="form-control" type="text" name="status"></div>
-                <div><h4>Salary:</h2><input class="form-control" type="text" name="salary"></div>
+                <div><h4>ID:</h4><input class="form-control" type="text" name="id" placeholder="Required"></div>
+                <div><h4>First Name:</h4><input class="form-control" type="text" name="firstName" placeholder="Required"></div>
+                <div><h4>Middle Name:</h4><input class="form-control" type="text" name="middleName"></div>
+                <div><h4>Last Name:</h4><input class="form-control" type="text" name="lastName" placeholder="Required"></div>
+                <div><h4>Date of Birth:</h4><input class="form-control" type="text" name="dob" placeholder="Required"></div>
+                <div><h4>Driver License:</h4><input class="form-control" type="text" name="driverLicense"></div>
+                <div><h4>SSN:</h4><input class="form-control" type="text" name="ssn" placeholder="Required"></div>
+                <div><h4>Cell phone:</h4><input class="form-control" type="text" name="cell"></div>
+                <div><h4>Home phone:</h4><input class="form-control" type="text" name="home_phone"></div>
+                <div><h4>Email:</h4><input class="form-control" type="text" name="email"></div>
+                <div><h4>Addres type:</h4><input class="form-control" type="text" name="type"></div>
+                <div><h4>Line1:</h4><input class="form-control" type="text" name="line1"></div>
+                <div><h4>Line2:</h4><input class="form-control" type="text" name="line2"></div>
+                <div><h4>City:</h4><input class="form-control" type="text" name="city"></div>
+                <div><h4>State:</h4><input class="form-control" type="text" name="state"></div>
+                <div><h4>ZIP:</h4><input class="form-control" type="text" name="zip"></div>
+                <div><h4>Employment Status:</h4><input class="form-control" type="text" name="status"></div>
+                <div><h4>Salary:</h4><input class="form-control" type="text" name="salary"></div>
                 
                 <button type="submit" class="btn btn-warning">Create Employee</button>
             </form>
         </div>
+
+        <div id="add-dependant-form-container" class="hide container">
+            <form id="create-dependant-form">
+                <h6>First Name</h6><input id="dependantFN" class="form-control" type="text" name="dependantFirstName" value="">  
+                <h6>Middle Name</h6><input id="dependantMN" class="form-control" type="text" name="dependantMiddleName" value="">  
+                <h6>Last Name</h6><input id="dependantLN" class="form-control" type="text" name="dependantLastName" value="">
+                <h6>DOB</h6><input id="dependantDOB" class="form-control" type="text" name="dependantDob" value="">
+                <h6>Relationship</h6><input id="dependantRel" class="form-control" type="text" name="dependantRelationship" value="">
+                <button id="create-dependant-form-button" type="button" class="btn btn-warning">Save</button>
+            </form>
+
+        </div>
+        
+        
 
     </main>
 
