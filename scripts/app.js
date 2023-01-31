@@ -39,18 +39,21 @@ const addEmployeeBtn = document.querySelector('#add-employee-container')
 const createEmployeeForm = document.querySelector('#create-employee-form')
 const createEmployeeFormContainer = document.querySelector('#create-employee-form-container')
 const showEmployeeForm = document.querySelector('#show-employee-form')
-const dependantForm = document.querySelector('#create-dependant-form')
+// const dependantForm = document.querySelector('#create-dependant-form')
 const dependantFN = document.querySelector('#dependantFN')
 const dependantMN = document.querySelector('#dependantMN')
 const dependantLN = document.querySelector('#dependantLN')
 const dependantDOB = document.querySelector('#dependantDOB')
 const dependantRelationship = document.querySelector('#dependantRel')
 const addDependantBtn = document.querySelector('#create-dependant-form-button')
-const deleteDependantBtn = document.querySelector('#delete-dependant-button')
-const deleteBtns = document.querySelectorAll(".delete-dependant-btn")
-const saveUpdateBtn = document.querySelector("#save-update-dependant-btn")
-const updateDependantForm = document.querySelector('#update-dependant-form')
-
+// const deleteDependantBtn = document.querySelector('#delete-dependant-button')
+// const deleteBtns = document.querySelectorAll(".delete-dependant-btn")
+// const saveUpdateBtn = document.querySelector("#save-update-dependant-btn")
+// const updateDependantForm = document.querySelector('#update-dependant-form')
+const signupBtn = document.querySelector('#signupBtn')
+const signinBtn = document.querySelector('#signinBtn')
+const signupForm = document.querySelector('#signupForm')
+const signinForm = document.querySelector('#signinForm')
 
 
 
@@ -226,6 +229,17 @@ showEmployeeContainer.addEventListener('click', (event) => {
 })
 
 // User Actions
+signupBtn.addEventListener('click', () => {
+    signinForm.classList.add('hide')
+    signupForm.classList.remove('hide')
+})
+
+signinBtn.addEventListener('click', () => {
+    signinForm.classList.remove('hide')
+    signupForm.classList.add('hide')    
+})
+
+
 signUpContainer.addEventListener('submit', (event) => {
 	event.preventDefault()
 	const userData = {
@@ -414,3 +428,6 @@ if(addDependantBtn) {
 // 		.then(onUpdateEmployeeSuccess)
 // 		.catch(onFailure)
 // })
+
+
+

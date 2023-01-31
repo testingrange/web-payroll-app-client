@@ -21,6 +21,7 @@ const updateDependantMNFld = document.querySelector("#upDepMN")
 const updateDependantLNFld = document.querySelector("#upDepLN")
 const updateDependantDOBFld = document.querySelector("#upDepDOB")
 const updateDependantRelFld = document.querySelector("#upDepRel")
+const mainMenuButton = document.querySelector('#main-menu')
 
 // Employee Actions
 export const onIndexEmployeeSuccess = (employees) => {
@@ -179,6 +180,12 @@ export const onShowEmployeeSuccess = (employee) => {
             if(saveUpdateBtn){
                 saveUpdateBtn.addEventListener('click', (event) => {
                 event.preventDefault()
+                // if (event.target.id === "save-update-dependant-btn") {
+
+                // }
+                // saveUpdateBtn = event.target['id'].value
+
+                // #############################################################
                 const dependantId = updateBtns[i].getAttribute('dependant-id')
                 const employeeId = store.currentEmployeeId
 
@@ -223,7 +230,7 @@ export const onShowEmployeeSuccess = (employee) => {
             // else {
             //     console.log("No. Something wrong")
             // }
-            
+            //
         
         })
 
@@ -278,6 +285,7 @@ export const onSignUpSuccess = () => {
 }
 
 export const onSignInSuccess = (userToken) => {
+    mainMenuButton.classList.remove('hide')
     messageContainer.innerHTML = ''
     store.userToken = userToken
     authContainer.classList.add('hide')
