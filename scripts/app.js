@@ -54,6 +54,8 @@ const signupBtn = document.querySelector('#signupBtn')
 const signinBtn = document.querySelector('#signinBtn')
 const signupForm = document.querySelector('#signupForm')
 const signinForm = document.querySelector('#signinForm')
+const updateDependatEditContainer = document.querySelector('#show-update-dependant-container')
+
 
 
 
@@ -115,7 +117,9 @@ createEmployeeForm.addEventListener('submit', (event) => {
         while(child) {
             indexEmployeesContainer.removeChild(child)
             child = indexEmployeesContainer.lastElementChild
-        }       
+        }
+        const updDepForm = document.querySelector("#update-dependant-form")
+        if (updDepForm) updDepForm.remove()
     }
 
     const employeeData = {
@@ -200,6 +204,8 @@ mainMenuButton.addEventListener('click', (event) => {
     for (const child of showEmployeeContainer.children){
         child.remove()
     }
+    const updDepForm = document.querySelector("#update-dependant-form")
+    if (updDepForm) updDepForm.remove()
     // showEmployeeContainer.classList.add('hide')
 
 })
@@ -274,8 +280,7 @@ if(addDependantBtn) {
     console.log(addDependantBtn, "addDependantButton")
     addDependantBtn.addEventListener('click', (event) => {
         event.preventDefault()
-    
-    
+   
         const dependantData = {
             dependant: {
                 firstName: dependantFN.value,
@@ -298,136 +303,47 @@ if(addDependantBtn) {
 
 }
 
+// Update dependant
+// const saveUpdateBtn = document.querySelector("#save-update-dependant-btn")
+updateDependatEditContainer.addEventListener('submit', (event) => {
+    event.preventDefault()
+    // if (event.target.id === "save-update-dependant-btn") {
 
+    // }
+    // saveUpdateBtn = event.target['id'].value
 
-// #################   DELETE Dependant   ####################
-// const deleteBtns = document.querySelectorAll(".delete-dependant-btn")
-// if(deleteBtns) {
-    // console.log(deleteBtns.length, "Delete buttons")
-    // for (let i=0; i<deleteBtns.length; i++) {
-    //     console.log(deleteBtns[i])
-    //     // console.log(deleteBtns[i].getAttribute('dependant-id'), "THis is depId ")
-    //     deleteBtns[i].addEventListener('click', (event) => {
-    //         event.preventDefault()
-    //         // console.log(deleteBtns[i].getAttribute('dependant-id'))
-    //         const dependantId = event.target.getAttribute('dependant-id')
-    //         // console.log(dependantId, "This is internal" )
-    //         if (!dependantId) return
+    // #############################################################
+    // const updDepBtn = document.querySelector('#save-update-dependant-btn')
+    const updDepForm = document.querySelector("#update-dependant-form")
+    // const dependantId = updDepBtn.getAttribute('dependant-id')
+    const dependantId = updDepForm.getAttribute("data-id")
+    const employeeId = store.currentEmployeeId
 
-    //         const employeeId = store.currentEmployeeId
-    //         // console.log(employeeId, "Employee ID")
+    // console.log(dependantId, "DependantId from saveUpdatedDependant")
+    console.log(employeeId, "EmployeeId from saveUpdateBtn")
 
-    //         // const dependantData = {
-    //         //     dependant: {
-    //         //         employeeId: employeeId
-    //         //     }
-    //         // }
-    //         // console.log(store.currentEmployeeId)
-    //         // console.log(dependantData, "Internal dependantData")
-    //         deleteDependant(employeeId, dependantId)
-    //             .then(onDeleteDependantSuccess)
-    //             .catch(onFailure)
-    //     })
-
-    // }    
-// }
-
-// ################# UPDATE Dependant #####################
-// if(saveUpdateBtn){
-//     saveUpdateBtn.addEventListener('submit', (event) => {
-//         event.preventDefault()
-//         const dependantId = updateDependantForm.getAttribute('data-id')
-//         const employeeId = store.currentEmployeeId
-
-//         // console.log(dependantId, "DependantId from saveUpdatedDependant")
-//         console.log(employeeId, "EmployeeId from saveUpdateBtn")
-    
-//         if(!dependantId) return
+    if(!dependantId) return
 
 
 
-    
-    
-//         const dependantData = {
-//             dependant: {
-//                 firstName: dependantFN.value,
-//                 middleName: dependantMN.value,
-//                 lastName: dependantLN.value,
-//                 dob: dependantDOB.value,
-//                 relationship: dependantRelationship.value,                            
-//                 employeeId: store.currentEmployeeId
-//             },
-//         }
-    
-//         console.log(dependantData, "This is dependant data from addDependant")
-    
-    
-//         // const dependantData = {
-//         //     dependant: {
-//         //         firstName: dependantFN.value,
-//         //         middleName: event.target['dependantMiddleName'].value,
-//         //         lastName: dependantLN.value,
-//         //         dob: dependantDOB.value,
-//         //         relationship: dependantRelationship.value,
-//         //         employeeId: employeeId
-//         //     }
-//         // }
-//         // if (event.target.id === 'save-update-dependant-btn'){
-//         console.log(dependantData, "Data from showEmp;oyee container event listener")
-//         console.log(dependantId, "DependantId from saveUpdatedDependant")
-//         updateDependant(dependantData, dependantId)
-//             .then(onUpdateDependantSuccess)
-//             .catch(onFailure)
-//         // }
-//         // else {
-//         //     console.log("No. Something wrong")
-//         // }
+    const dependantData = {
+        dependant: {
+            firstName: event.target['upDependantFN'].value,
+            middleName: event.target['upDependantMN'].value,
+            lastName: event.target['upDependantLN'].value,
+            dob: event.target['upDependantDOB'].value,
+            relationship: event.target['upDependantRelationship'].value,                            
+            employeeId: employeeId
+        },
+    }
+
+    console.log(dependantData, "This is dependant data from addDependant")
+    console.log(dependantData, "Data from showEmp;oyee container event listener")
+    console.log(dependantId, "DependantId from saveUpdatedDependant")
+    updateDependant(dependantData, dependantId)
+        .then(onUpdateDependantSuccess)
+        .catch(onFailure)
+
         
-    
-//     })
-
-// }
-
-
-// ##################################################
-
-
-
-// howEmployeeContainer.addEventListener('submit', (event) => {
-// 	event.preventDefault()
-// 	const id = event.target.getAttribute('data-id')
-//     console.log(id, "id when clicking  on update Employee")
-// 	const employeeData = {
-// 		employee: {
-//             id: event.target['id'].value,
-// 			firstName: event.target['firstName'].value,
-//             middleName: event.target['middleName'].value,
-// 			lastName: event.target['lastName'].value,
-//             dob: event.target['dob'].value,
-//             driverLicense: event.target['driverLicense'].value,
-//             ssn: event.target['ssn'].value,
-//             contacts: {
-//                     cell: event.target['cell'].value,
-//                     home_phone: event.target['home_phone'].value,
-//                     email: event.target['email'].value
-//             },
-//             address: {
-//                     type: event.target['type'].value,
-//                     line1: event.target['line1'].value,
-//                     line2: event.target['line2'].value,
-//                     city: event.target['city'].value,
-//                     state: event.target['state'].value,
-//                     zip: event.target['zip'].value,
-//             },
-//             status: event.target['status'].value,
-//             salary: event.target['salary'].value
-// 		    },
-// 	    }
-//     console.log(employeeData, "Data from showEmp;oyee container event listener")
-// 	updateEmployee(employeeData, id)
-// 		.then(onUpdateEmployeeSuccess)
-// 		.catch(onFailure)
-// })
-
-
-
+    })
+ 
