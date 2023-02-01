@@ -4,6 +4,21 @@
 Web PAYROLL - application created for keeping track on created positions and companies' employees, calculating salary based on worked hours and salary. Also it allows to keep all information on employees at the app. 
 The app allows users to create, read, update, delete employees information in the app stored in the DB. Also it allow to add, read, update and delete information about employee's dependants.
 
+### Requests
+
+| Entity       | Request     |Routes       |
+| ------------ | ----------- |-------------|
+| EMPLOYEE     | POST        |'/employees' |
+| EMPLOYEE     | GET         |'/employees' |             
+| EMPLOYEE     | GET         |'/employees/:id'|
+| EMPLOYEE     | PATCH       |'/employees/:id'|
+| EMPLOYEE     | DELETE      |'/employees/:id'|
+| DEPENDANT    | POST        |'/dependants' |
+| DEPENDANT    | UPDATE      |'/dependants/:dependantId'|
+| DEPENDANT    | DELETE      |'/dependants/:employeeId/:dependantId'|
+| USER         | POST        |'/sign-in'|
+| USER         | POST        |'/sign-up'|
+
 ## MVP/Version 1
 
 ### 1. User can sign up/log in to the app by inputting email and password.
