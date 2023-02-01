@@ -6,7 +6,6 @@ import {indexEmployee,
         signUp,
         signIn,
         addDependant,
-        deleteDependant,
         updateDependant
 } from './api.js'
 
@@ -20,10 +19,8 @@ import {
     onDeleteEmployeeSuccess,
     onSignUpSuccess,
     onSignInSuccess,
-    // onAddEmployeeClick,
     onCreateEmployeeSuccess,
     onAddDependantSuccess,
-    onDeleteDependantSuccess,
     onUpdateDependantSuccess
 } from './ui.js'
 
@@ -39,17 +36,12 @@ const addEmployeeBtn = document.querySelector('#add-employee-container')
 const createEmployeeForm = document.querySelector('#create-employee-form')
 const createEmployeeFormContainer = document.querySelector('#create-employee-form-container')
 const showEmployeeForm = document.querySelector('#show-employee-form')
-// const dependantForm = document.querySelector('#create-dependant-form')
 const dependantFN = document.querySelector('#dependantFN')
 const dependantMN = document.querySelector('#dependantMN')
 const dependantLN = document.querySelector('#dependantLN')
 const dependantDOB = document.querySelector('#dependantDOB')
 const dependantRelationship = document.querySelector('#dependantRel')
 const addDependantBtn = document.querySelector('#create-dependant-form-button')
-// const deleteDependantBtn = document.querySelector('#delete-dependant-button')
-// const deleteBtns = document.querySelectorAll(".delete-dependant-btn")
-// const saveUpdateBtn = document.querySelector("#save-update-dependant-btn")
-// const updateDependantForm = document.querySelector('#update-dependant-form')
 const signupBtn = document.querySelector('#signupBtn')
 const signinBtn = document.querySelector('#signinBtn')
 const signupForm = document.querySelector('#signupForm')
@@ -58,9 +50,25 @@ const updateDependatEditContainer = document.querySelector('#show-update-dependa
 
 
 
+// ######### Screen Navigation ###########
 
+// Return to Main screen button
+mainMenuButton.addEventListener('click', (event) => {
+    event.preventDefault()
+    indexContainer.classList.remove('hide')
+    createEmployeeContainer.classList.remove('hide')
+    createEmployeeFormContainer.classList.add('hide')
+    for (const child of showEmployeeContainer.children){
+        child.remove()
+    }
+    const updDepForm = document.querySelector('#update-dependant-form')
+    if (updDepForm) updDepForm.remove()
+})
 
-// Employee actions
+// ######### Employee Actions ###########
+
+// Show Employee
+
 indexEmployeesContainer.addEventListener('click', (event) => {
 	const id = event.target.getAttribute('data-id')
 
@@ -73,20 +81,20 @@ indexEmployeesContainer.addEventListener('click', (event) => {
 		})
         .catch(onFailure)
 })
-// Add Employee screen
+
+// Add Employee
+
 addEmployeeBtn.addEventListener('click', (event) => {
     event.preventDefault()
-    // indexContainer.classList.add('hide')
-    // createEmployeeContainer.classList.add('hide')
     indexContainer.classList.add('hide')
     createEmployeeContainer.classList.add('hide')
     showEmployeeContainer.classList.remove('hide')
-    // createEmployeeContainer.classList.remove('hide')
     createEmployeeFormContainer.classList.remove('hide')
 })
 
-// ######### Show Employee ###########
-// ###################################
+
+// Show Employee
+
 showEmployeeForm.addEventListener('submit', (event) => {
     event.preventDefault()
     const id = event.target['employeeId'].value
@@ -102,13 +110,11 @@ showEmployeeForm.addEventListener('submit', (event) => {
 })
 
 
-// ######### CREATE Employee ###########
+// Create Employee
 
 createEmployeeForm.addEventListener('submit', (event) => {
     event.preventDefault()
-	// const id = event.target.getAttribute('data-id')
 
-	// if (!id) return
     const reloadMainContent = () => {
         createEmployeeFormContainer.classList.add('hide')
         indexContainer.classList.remove('hide')
@@ -118,7 +124,7 @@ createEmployeeForm.addEventListener('submit', (event) => {
             indexEmployeesContainer.removeChild(child)
             child = indexEmployeesContainer.lastElementChild
         }
-        const updDepForm = document.querySelector("#update-dependant-form")
+        const updDepForm = document.querySelector('#update-dependant-form')
         if (updDepForm) updDepForm.remove()
     }
 
@@ -154,14 +160,12 @@ createEmployeeForm.addEventListener('submit', (event) => {
 })
 
 
-
-
-// ########## UPDATE Employee ##############
+// Update Employee
 
 showEmployeeContainer.addEventListener('submit', (event) => {
 	event.preventDefault()
 	const id = event.target.getAttribute('data-id')
-    console.log(id, "id when clicking  on update Employee")
+    console.log(id, 'id when clicking  on update Employee')
 	const employeeData = {
 		employee: {
             id: event.target['id'].value,
@@ -188,30 +192,15 @@ showEmployeeContainer.addEventListener('submit', (event) => {
             salary: event.target['salary'].value
 		    },
 	    }
-    console.log(employeeData, "Data from showEmp;oyee container event listener")
+    console.log(employeeData, 'Data from showEmp;oyee container event listener')
 	updateEmployee(employeeData, id)
 		.then(onUpdateEmployeeSuccess)
 		.catch(onFailure)
 })
 
 
-// ########## Main-menu button to return to main screen ##########
-mainMenuButton.addEventListener('click', (event) => {
-    event.preventDefault()
-    indexContainer.classList.remove('hide')
-    createEmployeeContainer.classList.remove('hide')
-    createEmployeeFormContainer.classList.add('hide')
-    for (const child of showEmployeeContainer.children){
-        child.remove()
-    }
-    const updDepForm = document.querySelector("#update-dependant-form")
-    if (updDepForm) updDepForm.remove()
-    // showEmployeeContainer.classList.add('hide')
+// Delete Employee
 
-})
-
-
-// ##################### DELETE Employee #######################
 showEmployeeContainer.addEventListener('click', (event) => {
 	const id = event.target.getAttribute('data-id')
 
@@ -234,17 +223,25 @@ showEmployeeContainer.addEventListener('click', (event) => {
 		.catch(onFailure)
 })
 
-// User Actions
+// ################# User Actions #################
+
+// Sign Up button toggler
+
 signupBtn.addEventListener('click', () => {
     signinForm.classList.add('hide')
     signupForm.classList.remove('hide')
 })
+
+
+// Sign In button toggler
 
 signinBtn.addEventListener('click', () => {
     signinForm.classList.remove('hide')
     signupForm.classList.add('hide')    
 })
 
+
+// Signing Up
 
 signUpContainer.addEventListener('submit', (event) => {
 	event.preventDefault()
@@ -256,6 +253,9 @@ signUpContainer.addEventListener('submit', (event) => {
 	}
 	signUp(userData).then(onSignUpSuccess).catch(onFailure)
 })
+
+
+// Signing In
 
 signInContainer.addEventListener('submit', (event) => {
 	event.preventDefault()
@@ -275,9 +275,11 @@ signInContainer.addEventListener('submit', (event) => {
 })
 
 
-// ################# ADD Dependant #####################
+// ################# Dependant Actions #####################
+
+// Add Dependantmain
+
 if(addDependantBtn) {
-    console.log(addDependantBtn, "addDependantButton")
     addDependantBtn.addEventListener('click', (event) => {
         event.preventDefault()
    
@@ -292,39 +294,22 @@ if(addDependantBtn) {
             },
         }
     
-        console.log(dependantData, "This is dependant data from addDependant")
-    
-    
         addDependant(dependantData)
             .then(onAddDependantSuccess)
             .catch(onFailure)
-    
     })
-
 }
 
 // Update dependant
-// const saveUpdateBtn = document.querySelector("#save-update-dependant-btn")
+
 updateDependatEditContainer.addEventListener('submit', (event) => {
     event.preventDefault()
-    // if (event.target.id === "save-update-dependant-btn") {
 
-    // }
-    // saveUpdateBtn = event.target['id'].value
-
-    // #############################################################
-    // const updDepBtn = document.querySelector('#save-update-dependant-btn')
-    const updDepForm = document.querySelector("#update-dependant-form")
-    // const dependantId = updDepBtn.getAttribute('dependant-id')
-    const dependantId = updDepForm.getAttribute("data-id")
+    const updDepForm = document.querySelector('#update-dependant-form')
+    const dependantId = updDepForm.getAttribute('data-id')
     const employeeId = store.currentEmployeeId
 
-    // console.log(dependantId, "DependantId from saveUpdatedDependant")
-    console.log(employeeId, "EmployeeId from saveUpdateBtn")
-
     if(!dependantId) return
-
-
 
     const dependantData = {
         dependant: {
@@ -337,13 +322,8 @@ updateDependatEditContainer.addEventListener('submit', (event) => {
         },
     }
 
-    console.log(dependantData, "This is dependant data from addDependant")
-    console.log(dependantData, "Data from showEmp;oyee container event listener")
-    console.log(dependantId, "DependantId from saveUpdatedDependant")
     updateDependant(dependantData, dependantId)
         .then(onUpdateDependantSuccess)
-        .catch(onFailure)
-
-        
+        .catch(onFailure)        
     })
  

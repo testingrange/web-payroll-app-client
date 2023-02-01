@@ -17,7 +17,7 @@
     
 
     <main>
-        <nav class="navbar navbar-expand-lg bg-light">
+        <nav class="navbar navbar-expand-lg bg-success">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">Web PAYROLL</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -25,19 +25,19 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <button type="button" id="main-menu" class="btn btn-secondary hide">Return</button>
-                    <button type="button" id="signupBtn" class="btn btn-secondary">Sign Up</button>
-                    <button type="button" id="signinBtn" class="btn btn-secondary">Sign In</button>
+                    <button type="button" id="main-menu" class="btn btn-primary hide">Return</button>
+                    <button type="button" id="signupBtn" class="btn btn-primary">Sign Up</button>
+                    <button type="button" id="signinBtn" class="btn btn-primary">Sign In</button>
                     <div id="message-container"></div>
                 </div>
             </div>
         </nav>
 
         <div id="create-employee-container" class="hide">
-            <button id="add-employee-container" type="button" class="btn btn-success" >Add Employee</button>
+            <button id="add-employee-container" type="button" class="btn btn-primary" >Add Employee</button>
             <form id="show-employee-form">
                 <input class="form-control" type="text" name="employeeId" value="">
-                <button type="submit" class="btn btn-success">Find Employee</button>
+                <button type="submit" class="btn btn-secondary">Find Employee</button>
             </form>
         </div>
 
@@ -47,7 +47,7 @@
             <div id="auth-container" class="container">
                     <div class="row">
                         <div id="signupForm" class="col hide">
-                            <h2>New User? Sign Up</h2>
+                            <h2 class="signing-proc">Sign Up</h2>
                             <form id="sign-up-form-container">
                                 <div class="mb-3">
                                     <label for="exampleFormControlInput1" class="form-label">Email address</label>
@@ -61,7 +61,7 @@
                             </form>
                         </div>
                         <div id="signinForm" class="col" style="width: 30%">
-                        <h2>Returning User? Sign In</h2>
+                        <h2 class="signing-proc">Sign In</h2>
                             <form id="sign-in-form-container">
                                 <div class="mb-3">
                                     <label for="exampleFormControlInput1" class="form-label">Email address</label>
@@ -96,7 +96,7 @@
         </div>
 
         <div id="create-employee-form-container" class="hide">
-            <form id="create-employee-form">
+            <form id="create-employee-form" class="form-control form-control-sm">
                 <div><h4>ID:</h4><input class="form-control" type="text" name="id" placeholder="Required"></div>
                 <div><h4>First Name:</h4><input class="form-control" type="text" name="firstName" placeholder="Required"></div>
                 <div><h4>Middle Name:</h4><input class="form-control" type="text" name="middleName"></div>

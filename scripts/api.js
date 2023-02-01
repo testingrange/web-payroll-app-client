@@ -15,7 +15,7 @@ export const signUp = (data) => {
 }
 
 export const signIn = (data) => {
-    console.log(data, "sign in")
+    console.log(data, 'sign in')
 	return fetch(`http://localhost:8001/sign-in`, {
 		method: 'POST',
 		headers: {
