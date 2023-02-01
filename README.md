@@ -57,6 +57,13 @@ The app allows users to create, read, update, delete employees information in th
 * Bootstrap 5.3
 * CSS
 
+<hr>
+
+## ERD
+
+### Models' relationship schema
+<img src="./pictures/ERD.jpg" width="900" alt="Models' relationship schema">
+ 
 
 ## Next Steps
 <hr>
@@ -77,11 +84,4 @@ The app allows users to create, read, update, delete employees information in th
 ### 3. As an Accountant, I want to be able to calculate salary taxes and complete paystabs.
 ### 4. As an Accountant, I want to be able to send out paystabs to employee's emails.
 
-<hr>
 
-## ERD
-
-### Models' relationship schema
-<img src="./pictures/ERD.jpg" width="900" alt="Models' relationship schema">
- 
-<hr>
