@@ -3,7 +3,6 @@ import { store } from './store.js'
 
 // User actions
 export const signUp = (data) => {
-    console.log(data)
 	return fetch(`http://localhost:8001/sign-up`, {
 		method: 'POST',
 		headers: {
