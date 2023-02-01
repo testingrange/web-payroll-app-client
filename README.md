@@ -6,18 +6,18 @@ The app allows users to create, read, update, delete employees information in th
 
 ### Requests
 
-| Entity       | Request     |Routes       |
-| ------------ | ----------- |-------------|
-| EMPLOYEE     | POST        |'/employees' |
-| EMPLOYEE     | GET         |'/employees' |             
-| EMPLOYEE     | GET         |'/employees/:id'|
-| EMPLOYEE     | PATCH       |'/employees/:id'|
-| EMPLOYEE     | DELETE      |'/employees/:id'|
-| DEPENDANT    | POST        |'/dependants' |
-| DEPENDANT    | UPDATE      |'/dependants/:dependantId'|
-| DEPENDANT    | DELETE      |'/dependants/:employeeId/:dependantId'|
-| USER         | POST        |'/sign-in'|
-| USER         | POST        |'/sign-up'|
+| Entity       | Request     |Routes       |Purpose  |
+| ------------ | ----------- |-------------|---------|
+| EMPLOYEE     | POST        |'/employees' |Create new employee|
+| EMPLOYEE     | GET         |'/employees' |Load all employees|            
+| EMPLOYEE     | GET         |'/employees/:id'|Show card for one employee|
+| EMPLOYEE     | PATCH       |'/employees/:id'|Update one specific employee|
+| EMPLOYEE     | DELETE      |'/employees/:id'|Delete one specific employee|
+| DEPENDANT    | POST        |'/dependants' |Add dependant record to an existing employee|
+| DEPENDANT    | UPDATE      |'/dependants/:dependantId'|Update the dependant record|
+| DEPENDANT    | DELETE      |'/dependants/:employeeId/:dependantId'|Delete the dependant record|
+| USER         | POST        |'/sign-in'|Sign in to the application
+| USER         | POST        |'/sign-up'|Create a user
 
 ## MVP/Version 1
 
